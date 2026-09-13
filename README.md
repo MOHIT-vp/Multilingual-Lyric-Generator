@@ -1,3 +1,6 @@
+<img width="1184" height="645" alt="Screenshot 2026-09-13 at 10 24 47 AM" src="https://github.com/user-attachments/assets/853a143a-7e59-45bc-bd0a-46d08c28eea4" />
+<img width="1096" height="701" alt="Screenshot 2026-05-31 at 4 38 20 AM" src="https://github.com/user-attachments/assets/598c64ba-be21-461e-be70-67ef6d87a827" />
+
 # Multilingual Song Lyric Generator with Cultural Context
 
 A GenAI tool that produces **original song lyrics in Kannada, Hindi and English**
