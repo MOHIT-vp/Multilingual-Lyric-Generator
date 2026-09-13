@@ -34,23 +34,38 @@ Built for the 12-hour GenAI Hackathon, problem statement **PS-C2**.
 
 ## Architecture
 
-```
-                ┌──────────────────────────────────────────────┐
-  Public datasets│ ai4bharat/sangraha (Kannada)                 │
-  (problem stmt) │ huggingartists (English lyrics)              │
-                │ Kaggle isrc-data-with-lyrics (Hindi)         │
-                └───────────────┬──────────────────────────────┘
-                                │  scripts/prepare_data.py
-                                ▼
-                   data/corpus/*.jsonl  +  data/samples/*.jsonl
-                                │
-        theme / emotion / style │  (TF-IDF char-ngram retrieval)
-        rhyme / metre           ▼
-   UI (app.py) ─► retrieval.py ─► prompts.py ─► llm.py (Gemini) ─► lyrics.py
-                                                                          │
-                                                  analysis.py (rhyme/metre) ◄┘
-                                                                          │
-                                            Streamlit render (lyrics + gloss + scorecard)
+```mermaid
+flowchart TD
+    subgraph Data Ingestion
+        D1[ai4bharat/sangraha]
+        D2[huggingartists]
+        D3[Kaggle isrc-data]
+        Prep[scripts/prepare_data.py]
+        DB[(data/corpus/*.jsonl)]
+        
+        D1 --> Prep
+        D2 --> Prep
+        D3 --> Prep
+        Prep --> DB
+    end
+
+    subgraph Generation Flow
+        UI[app.py]
+        RAG[retrieval.py]
+        Prompt[prompts.py]
+        LLM[llm.py]
+        Parse[lyrics.py]
+        Check[analysis.py]
+        
+        UI -- "theme / style / metre" --> RAG
+        DB -. "TF-IDF char-ngram retrieval" .-> RAG
+        RAG --> Prompt
+        Prompt --> LLM
+        LLM --> Parse
+        Parse --> Check
+        Check -- "rhyme/metre scorecard" --> Parse
+        Parse -- "lyrics + gloss + scorecard" --> UI
+    end
 ```
 
 | Module | Responsibility |
