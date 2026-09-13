@@ -1,9 +1,4 @@
-# 🎶 Multilingual Song Lyric Generator with Cultural Context
-
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
-![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=google%20gemini&logoColor=white)
-![Groq](https://img.shields.io/badge/Groq-F55036?style=for-the-badge&logo=groq&logoColor=white)
+# Multilingual Song Lyric Generator with Cultural Context
 
 A GenAI tool that produces **original song lyrics in Kannada, Hindi and English**
 for a given **theme, emotion and musical style** — grounded in **real public
@@ -13,7 +8,7 @@ Built for the 12-hour GenAI Hackathon, problem statement **PS-C2**.
 
 ---
 
-## ✨ What it does (deliverables)
+## What it does (deliverables)
 
 | Deliverable | How it's met |
 |---|---|
@@ -22,7 +17,7 @@ Built for the 12-hour GenAI Hackathon, problem statement **PS-C2**.
 | **Rhyme scheme & metre options** | AABB / ABAB / ABCB / AAAA / free verse, and short/medium/long/free metre — and the app **measures** how well the output matches them. |
 | **Demo: compare same theme in 3 languages** | "Compare 3 languages" tab renders Kannada, Hindi and English side by side, each with an English gloss. |
 
-## 🧠 Why it respects "cultural context"
+## Why it respects "cultural context"
 
 1. **Native re-imagining, not translation.** Each language gets its own prompt
    with curated cultural guidance — traditions (Dasa-sahitya, ghazal, Americana
@@ -37,7 +32,7 @@ Built for the 12-hour GenAI Hackathon, problem statement **PS-C2**.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
                 ┌──────────────────────────────────────────────┐
@@ -71,7 +66,7 @@ Built for the 12-hour GenAI Hackathon, problem statement **PS-C2**.
 
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
 ```bash
 # 1. (recommended) virtual env
@@ -104,7 +99,7 @@ This project does not use any paid OpenAI APIs. It auto-detects and uses the fol
 
 ---
 
-## ✅ Hackathon rule compliance
+## Hackathon rule compliance
 
 - **No paid OpenAI API** — generation is via Google Gemini's free tier (with an
   optional OpenRouter free-model fallback).
@@ -116,13 +111,13 @@ This project does not use any paid OpenAI APIs. It auto-detects and uses the fol
 - **Attribution** — every snippet stores its `source`; the UI surfaces which real
   lines informed each generation.
 
-## 🔧 Tech stack
+## Tech stack
 Python · Streamlit · Google Gemini (multilingual LLM, free tier; OpenRouter
 fallback) · scikit-learn (TF-IDF RAG) · Hugging Face `datasets` · pandas.
 *(IndicTrans-compatible: ISO codes are tracked per language; the English gloss
 can be swapped for IndicTrans2 if desired.)*
 
-## ⚠️ Notes & limitations
+## Notes & limitations
 - Prosody analysis is heuristic (akshara approximation for Indic scripts); it is
   feedback, not a strict constraint on the model.
 - Bundled samples are short public-domain excerpts for grounding; the richer
