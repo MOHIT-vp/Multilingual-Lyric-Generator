@@ -1,0 +1,25 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+venv_mac/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Data caches (large downloaded corpora). Keep bundled samples in data/samples.
+data/corpus/*.jsonl
+data/hf_cache/
+.cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
