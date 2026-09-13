@@ -1,4 +1,9 @@
-# 🎶 Multilingual Song Lyric Generator with Cultural Context (PS-C2)
+# 🎶 Multilingual Song Lyric Generator with Cultural Context
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
+![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=google%20gemini&logoColor=white)
+![Groq](https://img.shields.io/badge/Groq-F55036?style=for-the-badge&logo=groq&logoColor=white)
 
 A GenAI tool that produces **original song lyrics in Kannada, Hindi and English**
 for a given **theme, emotion and musical style** — grounded in **real public
@@ -77,14 +82,14 @@ python -m venv .venv
 # 2. install
 pip install -r requirements.txt
 
-# 3. add your free Google Gemini key (NOT paid OpenAI)
+# 3. Add your free LLM key (Google Gemini, Groq, or OpenRouter)
 copy .env.example .env          # Windows  (cp on macOS/Linux)
-#   then edit .env -> GEMINI_API_KEY=AIza...
+#   then edit .env -> GROQ_API_KEY=gsk_... or GEMINI_API_KEY=AIza...
 
-# 4. build the corpus from the listed public datasets (needs internet)
+# 4. Build the corpus from the listed public datasets (needs internet)
 python scripts/prepare_data.py
 
-# 5. run the app
+# 5. Run the app
 streamlit run app.py
 ```
 
@@ -92,11 +97,10 @@ The app runs **even without** step 3 (mock mode) and step 4 (uses bundled
 public-domain samples) — but do both for the real, dataset-grounded demo.
 
 ### Getting a free LLM key
-Create a free **Google Gemini** key at **https://aistudio.google.com/apikey**
-(free tier; strong Kannada/Hindi). Default model `gemini-2.0-flash`. The app
-auto-detects the provider from your key: if you instead set `OPENROUTER_API_KEY`
-(free key at https://openrouter.ai/keys), it uses OpenRouter as a fallback.
-**No paid OpenAI API is used anywhere.**
+This project does not use any paid OpenAI APIs. It auto-detects and uses the following free-tier APIs depending on what you put in your `.env` file:
+1. **Groq (`GROQ_API_KEY`)**: Extremely fast generation. Get a free key at [console.groq.com](https://console.groq.com/).
+2. **Google Gemini (`GEMINI_API_KEY`)**: Excellent multilingual support (Kannada/Hindi). Get a free key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey).
+3. **OpenRouter (`OPENROUTER_API_KEY`)**: Use as a fallback for other free models. Get a key at [openrouter.ai/keys](https://openrouter.ai/keys).
 
 ---
 
